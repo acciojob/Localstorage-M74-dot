@@ -21,10 +21,10 @@ document.addEventListener('DOMContentLoaded', () => {
     itemsList.innerHTML = items
       .map((item, i) => {
         return `
-          <li>
+        
             <input type="checkbox" data-index="${i}" id="item${i}" ${item.done ? 'checked' : ''} />
             <label for="item${i}">${item.text}</label>
-          </li>
+        
         `;
       })
       .join('');
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Function to toggle item status
   function toggleDone(e) {
-    if (!e.target.matches('input')) return;
+    if (!e.target.matches('input[type="checkbox"]')) return;
     const el = e.target;
     const index = el.dataset.index;
     items[index].done = !items[index].done;
